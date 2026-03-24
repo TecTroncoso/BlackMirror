@@ -130,16 +130,16 @@ export default function App() {
   };
 
   const TopBar = () => (
-    <div className="flex justify-between items-center px-8 py-6 z-40 relative">
-      <div className="flex items-center space-x-4">
+    <div className="flex justify-between items-center px-4 md:px-8 py-4 md:py-6 z-40 relative">
+      <div className="flex items-center space-x-3 md:space-x-4">
          <div className="w-8 h-8 rounded bg-gradient-to-tr from-tv-focus to-indigo-500 flex items-center justify-center shadow-lg shadow-blue-500/20">
              <span className="font-bold text-white text-xs">B</span>
          </div>
          <div className="flex flex-col">
-            <span className="font-bold text-lg text-white tracking-wide leading-none">BLACK <span className="text-tv-focus font-light">MIRROR</span></span>
+            <span className="font-bold text-base md:text-lg text-white tracking-wide leading-none">BLACK <span className="text-tv-focus font-light">MIRROR</span></span>
          </div>
       </div>
-      <div className="flex items-center space-x-8">
+      <div className="flex items-center space-x-4 md:space-x-8">
         <div className="hidden md:flex items-center space-x-6 bg-white/5 px-6 py-2 rounded-full border border-white/5 backdrop-blur-md">
             <Wifi size={16} className={isConnected ? "text-green-500" : "text-red-500"} />
             <div className="w-px h-4 bg-white/10"></div>
@@ -271,15 +271,15 @@ export default function App() {
   );
 
   return (
-    <div className="flex h-screen w-full bg-tv-bg text-tv-text font-sans antialiased overflow-hidden selection:bg-tv-focus selection:text-white">
+    <div className="flex flex-col-reverse md:flex-row h-screen w-full bg-tv-bg text-tv-text font-sans antialiased overflow-hidden selection:bg-tv-focus selection:text-white">
       {/* Global Background Ambient */}
       <div className="ambient-glow"></div>
       
       <NavBar currentView={view} setView={setView} />
       
-      <main className="flex-1 flex flex-col min-w-0 relative z-10">
+      <main className="flex-1 flex flex-col min-w-0 relative z-10 mb-20 md:mb-0">
         <TopBar />
-        <div className="flex-1 px-6 md:px-12 pb-6 overflow-hidden">
+        <div className="flex-1 px-4 md:px-12 pb-6 overflow-hidden">
             {view === AppView.HOME && renderHome()}
             {view === AppView.SEARCH && renderLiveChat()} 
             {view === AppView.LIVE && renderLiveChat()}

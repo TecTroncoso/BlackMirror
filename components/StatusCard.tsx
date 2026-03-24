@@ -43,7 +43,7 @@ export const StatusCard: React.FC<StatusCardProps> = ({
            </span>
         </div>
 
-        <h1 className="text-5xl md:text-7xl font-black text-white mb-4 leading-none tracking-tighter drop-shadow-2xl animate-slide-in">
+        <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-white mb-4 leading-none tracking-tighter drop-shadow-2xl animate-slide-in">
           {title}
         </h1>
         
@@ -52,10 +52,10 @@ export const StatusCard: React.FC<StatusCardProps> = ({
           Real-time analysis, system optimization, and intelligent media curation.
         </p>
 
-        <div className="flex items-center space-x-4 animate-fade-in delay-200">
+        <div className="flex flex-col sm:flex-row w-full sm:w-auto sm:items-center space-y-4 sm:space-y-0 sm:space-x-4 animate-fade-in delay-200">
           <button 
             onClick={onAction}
-            className="group/btn relative overflow-hidden flex items-center space-x-3 bg-white text-black px-8 py-4 rounded-xl font-bold transition-all hover:scale-105 hover:shadow-[0_0_20px_rgba(255,255,255,0.4)]"
+            className="group/btn w-full sm:w-auto justify-center relative overflow-hidden flex items-center space-x-3 bg-white text-black px-8 py-4 rounded-xl font-bold transition-all hover:scale-105 hover:shadow-[0_0_20px_rgba(255,255,255,0.4)]"
           >
             {isProcessing ? (
                 <Cpu size={24} className="animate-spin text-black" />
@@ -65,7 +65,7 @@ export const StatusCard: React.FC<StatusCardProps> = ({
             <span className="uppercase tracking-wide text-sm">{actionLabel || "Initialize"}</span>
           </button>
           
-          <button className="flex items-center space-x-3 bg-white/5 hover:bg-white/10 border border-white/10 text-white px-8 py-4 rounded-xl font-bold backdrop-blur-md transition-all hover:border-white/30">
+          <button className="flex w-full sm:w-auto justify-center items-center space-x-3 bg-white/5 hover:bg-white/10 border border-white/10 text-white px-8 py-4 rounded-xl font-bold backdrop-blur-md transition-all hover:border-white/30">
             <Info size={24} />
             <span className="uppercase tracking-wide text-sm">More Info</span>
           </button>
