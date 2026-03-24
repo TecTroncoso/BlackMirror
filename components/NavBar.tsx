@@ -1,0 +1,71 @@
+import React from 'react';
+import { Search, Home, Tv, Film, Settings, User } from 'lucide-react';
+import { AppView } from '../types';
+
+interface NavBarProps {
+  currentView: AppView;
+  setView: (view: AppView) => void;
+}
+
+export const NavBar: React.FC<NavBarProps> = ({ currentView, setView }) => {
+  const navItems = [
+    { id: AppView.SEARCH, icon: Search, label: 'Search' },
+    { id: AppView.HOME, icon: Home, label: 'Home' },
+    { id: AppView.LIVE, icon: Tv, label: 'Live' },
+    { id: AppView.VOD, icon: Film, label: 'VOD' },
+    { id: AppView.SETTINGS, icon: Settings, label: 'Settings' },
+  ];
+
+  return (
+    <div className="h-screen w-24 flex flex-col items-center py-8 z-50 relative">
+      {/* Background for Sidebar */}
+      <div className="absolute inset-y-0 left-0 w-full glass-panel border-r-0 border-r-white/5 md:w-24 w-20"></div>
+
+      <div className="relative z-10 flex flex-col items-center h-full w-full">
+        <div className="mb-10 p-3 bg-gradient-to-br from-tv-focus to-indigo-600 rounded-2xl shadow-[0_0_15px_rgba(59,130,246,0.5)]">
+          <User size={20} className="text-white" />
+        </div>
+        
+        <div className="flex-1 flex flex-col space-y-8 w-full px-4 items-center justify-center">
+          {navItems.map((item) => {
+            const isActive = currentView === item.id;
+            return (
+              <button
+                key={item.id}
+                onClick={() => setView(item.id)}
+                className={`group flex flex-col items-center justify-center w-12 h-12 rounded-xl transition-all duration-300 relative ${
+                  isActive 
+                    ? 'text-white scale-110' 
+                    : 'text-tv-muted hover:text-white hover:scale-105'
+                }`}
+              >
+                {/* Active Indicator Background */}
+                {isActive && (
+                  <div className="absolute inset-0 bg-tv-focus/20 rounded-xl blur-md -z-10"></div>
+                )}
+                
+                <item.icon 
+                  size={24} 
+                  strokeWidth={isActive ? 2.5 : 2} 
+                  className={`transition-all duration-300 ${isActive ? 'drop-shadow-[0_0_8px_rgba(59,130,246,0.8)]' : ''}`}
+                />
+                
+                <span className={`absolute left-full ml-4 px-2 py-1 bg-white text-black text-xs font-bold rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-50`}>
+                  {item.label}
+                </span>
+
+                {isActive && (
+                    <div className="absolute -left-5 top-1/2 -translate-y-1/2 w-1 h-6 bg-tv-focus rounded-r-full shadow-[0_0_10px_#3b82f6]"></div>
+                )}
+              </button>
+            );
+          })}
+        </div>
+        
+        <div className="mt-auto text-[10px] text-tv-muted font-mono tracking-widest opacity-30 rotate-90 mb-4 origin-center">
+          V3.0
+        </div>
+      </div>
+    </div>
+  );
+};
