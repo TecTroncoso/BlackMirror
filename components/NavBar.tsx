@@ -33,6 +33,7 @@ export const NavBar: React.FC<NavBarProps> = ({ currentView, setView }) => {
               <button
                 key={item.id}
                 onClick={() => setView(item.id)}
+                aria-label={item.label}
                 className={`group flex flex-col items-center justify-center w-12 h-12 rounded-xl transition-all duration-300 relative ${
                   isActive 
                     ? 'text-white scale-110' 

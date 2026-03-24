@@ -31,8 +31,8 @@ export const Terminal: React.FC<TerminalProps> = ({ logs, onClear }) => {
           <span className="font-bold">Black Mirror Log</span>
         </div>
         <div className="flex space-x-2">
-           <button className="p-1 hover:text-white text-magisk-subtext"><Search size={14}/></button>
-           <button onClick={onClear} className="p-1 hover:text-red-400 text-magisk-subtext"><XCircle size={14}/></button>
+           <button aria-label="Search logs" className="p-1 hover:text-white text-magisk-subtext"><Search size={14}/></button>
+           <button aria-label="Clear logs" onClick={onClear} className="p-1 hover:text-red-400 text-magisk-subtext"><XCircle size={14}/></button>
         </div>
       </div>
       

@@ -225,6 +225,7 @@ export default function App() {
                     <button 
                         onClick={handleSendPrompt}
                         disabled={isProcessing}
+                        aria-label="Send prompt"
                         className="p-3 bg-tv-focus hover:bg-blue-400 rounded-xl text-white transition-all hover:scale-105 shadow-[0_0_15px_rgba(59,130,246,0.4)]"
                     >
                         {isProcessing ? <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" /> : <Send size={20} />}
