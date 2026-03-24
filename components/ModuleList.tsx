@@ -11,12 +11,12 @@ interface ModuleListProps {
 export const ModuleList: React.FC<ModuleListProps> = ({ modules, onToggle }) => {
   return (
     <div className="pb-24">
-      <h3 className="text-2xl font-bold text-white mb-6 flex items-center tracking-tight">
+      <h2 className="text-2xl font-bold text-white mb-6 flex items-center tracking-tight">
         Installed Modules
         <span className="ml-4 text-xs font-normal text-tv-muted border border-tv-muted/30 px-2 py-0.5 rounded-full">
           {modules.length} Available
         </span>
-      </h3>
+      </h2>
       
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
         {modules.map((mod) => (
@@ -49,9 +49,9 @@ export const ModuleList: React.FC<ModuleListProps> = ({ modules, onToggle }) => 
                 )}
 
                 <div className="transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-                    <h4 className="text-white font-bold text-lg leading-tight mb-1 drop-shadow-md group-hover:text-tv-focus transition-colors">
+                    <h3 className="text-white font-bold text-lg leading-tight mb-1 drop-shadow-md group-hover:text-tv-focus transition-colors">
                         {mod.name}
-                    </h4>
+                    </h3>
                     <div className="flex items-center space-x-2 text-[10px] text-gray-400 font-mono uppercase tracking-wider mb-2 opacity-80">
                         <span className="bg-white/10 px-1.5 py-0.5 rounded text-white">{mod.version}</span>
                         <span>{mod.category}</span>
